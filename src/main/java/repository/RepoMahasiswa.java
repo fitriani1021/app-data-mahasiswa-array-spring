@@ -4,7 +4,7 @@ import model.Mahasiswa;
 
 import java.util.ArrayList;
 
-public class RepoMahasiswa {
+public class RepoMahasiswa implements IRepoMahasiswa{
 
     ArrayList<String []> dataMahasiswa = new ArrayList<> ();
 

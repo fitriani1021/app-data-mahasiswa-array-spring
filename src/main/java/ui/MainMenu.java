@@ -1,12 +1,19 @@
 package ui;
 
+import config.BeanConfiguration;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import services.IServiceApp;
 import services.ServiceApp;
 
 import java.util.Scanner;
 
-public class App {
+public class MainMenu {
     public void run () {
-                ServiceApp serviceApp = new ServiceApp ();
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
+        ctx.register(BeanConfiguration.class);
+        ctx.refresh();
+        IServiceApp serviceApp = ctx.getBean(IServiceApp.class);
+        
                 Scanner input = new Scanner (System.in);
                 Boolean isRun = true;
                 String screen = "-----------\n" + " Main Menu\n" + "-----------\n" + "1. Add Mahasiswa\n"+"2. Delete Mahasiswa\n"+"3. View Mahasiswa\n"+"4. Exit\n" ;

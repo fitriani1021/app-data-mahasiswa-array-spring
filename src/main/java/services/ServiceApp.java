@@ -1,11 +1,17 @@
 package services;
 
+import repository.IRepoMahasiswa;
 import repository.RepoMahasiswa;
 
 import java.util.Scanner;
 
-public class ServiceApp {
-    RepoMahasiswa repoMahasiswa = new RepoMahasiswa ();
+public class ServiceApp implements IServiceApp{
+    private IRepoMahasiswa repoMahasiswa;
+    
+    public ServiceApp(IRepoMahasiswa repoMahasiswa) {
+        this.repoMahasiswa = repoMahasiswa;
+    }
+    
     Scanner input = new Scanner (System.in);
 
     protected String addNama;
